@@ -4,13 +4,12 @@
   "description": "",
   "main": "src/server.js",
   "scripts": {
-    "start": "node .",
-    "tsc": "tsc",
-    "dev": "ts-node-dev --respawn --transpile-only ./src/server.ts",
-    "prod": "tsc && node ./www/server.js",
-    "clean": "rm -rf www/ || true",
-    "build": "npm run clean && tsc && cp -rf src/config www/config && cp .npmrc www/.npmrc && cp package.json www/package.json && cd www && zip -r Archive.zip . && cd ..",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rimraf build/ || true",
+    "build": "tsc",
+    "dist": "sh ./scripts/dist.sh",
+    "start": "node dist/index.js",
+    "dev": "ts-node-dev --respawn --transpile-only ./src/index.ts"
   },
   "keywords": [],
   "author": "Gabriel Ruttner",
