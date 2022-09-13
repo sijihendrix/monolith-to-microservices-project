@@ -1,0 +1,20 @@
+version: "3"
+services:
+  api-user:
+    restart: on-failure
+    build: ./udagram-api-user
+  api-feed:
+    restart: on-failure
+    build: ./udagram-api-feed
+  frontend:
+    restart: on-failure
+    build: ./udagram-frontend
+    ports:
+      - "80:80"
+  reverseproxy:
+    build: ./udagram-reverseproxy
+    ports:
+      - "8080:8080"
+    depends_on:
+      - api-user
+      - api-feed
