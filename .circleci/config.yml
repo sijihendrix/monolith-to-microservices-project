@@ -19,6 +19,6 @@ jobs:
           docker tag frontend anileloye/frontend:latest
           docker tag reverseproxy anileloye/reverseproxy:latest
           docker push anileloye/frontend
-          docker push anileloye/frontend
-          docker push anileloye/frontend
-          docker push anileloye/frontend
+          docker push anileloye/api-user
+          docker push anileloye/api-feed
+          docker push anileloye/reverseproxy
