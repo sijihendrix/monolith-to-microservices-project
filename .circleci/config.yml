@@ -2,7 +2,7 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: circleci/cimg@0.2.1
+      - image: cimg/base:2022.06
         auth:
           username: $DOCKERHUB_USERNAME
           password: $DOCKERHUB_PASSWORD
@@ -22,3 +22,7 @@ jobs:
           docker push anileloye/api-user
           docker push anileloye/api-feed
           docker push anileloye/reverseproxy
+
+
+
+curl -X DELETE https://circleci.com/api/v1/monolith-to-microservices-project/:sijihendrix/:monolith-to-microservices-project/build-cache?circle-token=:485571edadfa709f68669f0195894cabb8fb0803
