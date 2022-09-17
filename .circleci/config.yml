@@ -14,11 +14,11 @@ jobs:
       - run: |
           docker-compose -f docker-compose.yaml build --parallel
           echo “$DOCKERHUB_PASSWORD” | docker login -u “$DOCKERHUB_USERNAME” --password-stdin
-          docker image tag api-user:latest api-user/$DOCKER_USERNAME/api-user:latest
-          docker image push api-user/$DOCKER_USERNAME/api-user:latest
-          docker image tag api-feed:latest api-feed/$DOCKER_USERNAME/api-feed:latest
-          docker image push api-feed/$DOCKER_USERNAME/api-feed:latest
-          docker image tag frontend:latest frontend/$DOCKER_USERNAME/frontend:latest
-          docker image push frontend/$DOCKER_USERNAME/frontend:latest
-          docker image tag reverseproxy:latest reverseproxy/$DOCKER_USERNAME/reverseproxy:latest
-          docker image push reverseproxy/$DOCKER_USERNAME/reverseproxy:latest
+          docker tag api-user anileloye/api-user:latest
+          docker tag api-feed anileloye/api-feed:latest
+          docker tag frontend anileloye/frontend:latest
+          docker tag reverseproxy anileloye/reverseproxy:latest
+          docker push anileloye/frontend
+          docker push anileloye/frontend
+          docker push anileloye/frontend
+          docker push anileloye/frontend
