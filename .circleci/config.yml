@@ -12,7 +12,7 @@ jobs:
           docker_layer_caching: true
       - checkout
       - run: |
-          docker-compose -f docker-compose.yaml build 
+          docker-compose -f docker-compose.yaml build --parallel
           echo “$DOCKERHUB_PASSWORD” | docker login -u “$DOCKERHUB_USERNAME” --password-stdin
           docker tag api-user anileloye/api-user:latest
           docker tag api-feed anileloye/api-feed:latest
