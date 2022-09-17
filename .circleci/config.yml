@@ -13,12 +13,12 @@ jobs:
       - checkout
       - run: |
           docker-compose -f docker-compose.yaml build --parallel
-          docker tag udagram-api-user ${DOCKERHUB_USERNAME}/latest
-          docker tag udagram-api-feed ${DOCKERHUB_USERNAME}/latest
-          docker tag udagram-frontend ${DOCKERHUB_USERNAME}/latest
-          docker tag udagram-reverseproxy ${DOCKERHUB_USERNAME}/latest
+          docker tag api-user api-user/latest
+          docker tag api-feed api-feed/latest
+          docker tag frontend frontend/latest
+          docker tag reverseproxy reverseproxy/latest
           echo “$DOCKERHUB_PASSWORD” | docker login -u “$DOCKERHUB_USERNAME” --password-stdin
-          docker push ${DOCKERHUB_USERNAME}/latest
-          docker push ${DOCKERHUB_USERNAME}/latest
-          docker push ${DOCKERHUB_USERNAME}/latest
-          docker push ${DOCKERHUB_USERNAME}/latest
+          docker push api-user/latest
+          docker push api-feed/latest
+          docker push frontend/latest
+          docker push reverseproxy/latest
