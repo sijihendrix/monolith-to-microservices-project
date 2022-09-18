@@ -42,11 +42,18 @@ pipeline {
 
     stage('Push') {
       steps {
+<<<<<<< HEAD
         sh 'docker push anileloye/frontend:latest'
         sh 'docker push anileloye/api-user:latest'
         sh 'docker push anileloye/api-feed:latest'
         sh 'docker push anileloye/reverseproxy:latest'
 
+=======
+        sh 'docker push anileloye/frontend'
+        sh 'docker push anileloye/api-user'
+        sh 'docker push anileloye/api-feed'
+        sh 'docker push anileloye/reverseproxy'
+>>>>>>> 0e96280156c0c9237e868cbb8152449927514b68
       }
     }
 
