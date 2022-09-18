@@ -20,11 +20,22 @@ pipeline {
     }
 
     stage('Tag') {
-      steps {
-        sh 'docker tag api-user anileloye/api-user'
-        sh 'docker tag api-feed anileloye/api-feed'
-        sh 'docker tag frontend anileloye/frontend'
-        sh 'docker tag reverseproxy anileloye/reverseproxy'
+      parallel {
+        stage('Tag') {
+          steps {
+            sh 'docker tag api-user anileloye/api-user'
+            sh 'docker tag api-feed anileloye/api-feed'
+            sh 'docker tag frontend anileloye/frontend'
+            sh 'docker tag reverseproxy anileloye/reverseproxy'
+          }
+        }
+
+        stage('') {
+          steps {
+            sh 'docker image ls'
+          }
+        }
+
       }
     }
 
