@@ -18,15 +18,16 @@ pipeline {
         sh 'docker-compose -f docker-compose.yaml build'
       }
     }
+
     stage('Tag') {
       steps {
         sh 'docker tag api-user anileloye/api-user:latest'
         sh 'docker tag api-feed anileloye/api-feed:latest'
         sh 'docker tag frontend anileloye/frontend:latest'
         sh 'docker tag reverseproxy anileloye/reverseproxy:latest'
-
       }
     }
+
     stage('Log into Dockerhub') {
       environment {
         DOCKERHUB_USER = 'anileloye'
@@ -43,7 +44,6 @@ pipeline {
         sh 'docker push anileloye/api-user'
         sh 'docker push anileloye/api-feed'
         sh 'docker push anileloye/reverseproxy'
-
       }
     }
 
