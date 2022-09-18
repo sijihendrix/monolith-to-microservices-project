@@ -15,10 +15,7 @@ pipeline {
 
     stage('Build') {
       steps {
-        sh 'docker build -f udagram-api-user/Dockerfile -t anileloye/api-user:latest .'
-        sh 'docker build -f udagram-api-feed/Dockerfile -t anileloye/api-feed:latest .'
-        sh 'docker build -f udagram-frontend/Dockerfile -t anileloye/frontend:latest .'
-        sh 'docker build -f udagram-reverseproxy/Dockerfile -t anileloye/reverseproxy:latest .'
+        sh 'docker-compose -f docker-compose.yaml build'
       }
     }
   
@@ -31,6 +28,17 @@ pipeline {
         sh 'docker login -u $DOCKERHUB_USER -p $DOCKERHUB_PASSWORD'
       }
     }
+    stage('Tag') {
+      parallel {
+        stage('Tag') {
+          steps {
+            sh 'docker tag api-user anileloye/api-user'
+            sh 'docker tag api-feed anileloye/api-feed'
+            sh 'docker tag frontend anileloye/frontend'
+            sh 'docker tag reverseproxy anileloye/reverseproxy'
+          }
+        }
+
 
     stage('Push') {
       steps {

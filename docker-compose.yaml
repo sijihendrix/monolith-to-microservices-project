@@ -13,6 +13,7 @@ services:
       AWS_BUCKET: $AWS_BUCKET
       JWT_SECRET: $JWT_SECRET
       URL: "http://localhost:8100"
+    image: api-user:latest
   api-feed:
     restart: on-failure
     build: ./udagram-api-feed
@@ -26,11 +27,13 @@ services:
       AWS_BUCKET: $AWS_BUCKET
       JWT_SECRET: $JWT_SECRET
       URL: "http://localhost:8100"
+    image: api-feed:latest
   frontend:
     restart: on-failure
     build: ./udagram-frontend
     ports:
       - "80:80"
+    image: frontend:latest
   reverseproxy:
     build: ./udagram-reverseproxy
     ports:
@@ -38,3 +41,4 @@ services:
     depends_on:
       - api-user
       - api-feed
+    image: reverseproxy:latest
