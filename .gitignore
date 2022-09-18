@@ -42,5 +42,13 @@ venv/
 !.elasticbeanstalk/*.global.yml
 
 
+
 k8s/
+udagram-api-user/deployment.yaml
+udagram-api-feed/service.yaml
+udagram-frontend/deployment.yaml
+udagram-frontend/service.yaml
+udagram-reverseproxy/deployment.yaml
+udagram-reverseproxy/service.yaml
+
 
