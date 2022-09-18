@@ -21,10 +21,10 @@ pipeline {
 
     stage('Tag') {
       steps {
-        sh 'docker tag api-user anileloye/api-user:latest'
-        sh 'docker tag api-feed anileloye/api-feed:latest'
-        sh 'docker tag frontend anileloye/frontend:latest'
-        sh 'docker tag reverseproxy anileloye/reverseproxy:latest'
+        sh 'docker tag api-user anileloye/api-user'
+        sh 'docker tag api-feed anileloye/api-feed'
+        sh 'docker tag frontend anileloye/frontend'
+        sh 'docker tag reverseproxy anileloye/reverseproxy'
       }
     }
 
