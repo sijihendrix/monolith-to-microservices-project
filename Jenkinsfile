@@ -30,7 +30,7 @@ pipeline {
           }
         }
 
-        stage('') {
+        stage('list images') {
           steps {
             sh 'docker image ls'
           }
