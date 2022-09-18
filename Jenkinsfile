@@ -15,22 +15,25 @@ pipeline {
 
     stage('Build') {
       steps {
-        sh 'docker-compose -f docker-compose.yaml build'
+        sh 'docker build -f udagram-api-user/Dockerfile -t anileloye/api-user:latest .'
+        sh 'docker build -f udagram-api-feed/Dockerfile -t anileloye/api-feed:latest .'
+        sh 'docker build -f udagram-frontend/Dockerfile -t anileloye/frontend:latest .'
+        sh 'docker build -f udagram-reverseproxy/Dockerfile -t anileloye/reverseproxy:latest .'
       }
     }
-    stage('Tag') {
-      steps {
-        sh 'docker tag api-user anileloye/api-user:latest'
-        sh 'docker tag api-feed anileloye/api-feed:latest'
-        sh 'docker tag frontend anileloye/frontend:latest'
-        sh 'docker tag reverseproxy anileloye/reverseproxy:latest'
+    // stage('Tag') {
+    //   steps {
+    //     sh 'docker tag api-user anileloye/api-user:latest'
+    //     sh 'docker tag api-feed anileloye/api-feed:latest'
+    //     sh 'docker tag frontend anileloye/frontend:latest'
+    //     sh 'docker tag reverseproxy anileloye/reverseproxy:latest'
 
-      }
-    }
+    //   }
+    // }
     stage('Log into Dockerhub') {
       environment {
         DOCKERHUB_USER = 'anileloye'
-        DOCKERHUB_PASSWORD = 'gv1&3Ea9W##onDQAMUG&41CvZ7h1d1'
+        DOCKERHUB_PASSWORD = 'Oluwasijibomi17_'
       }
       steps {
         sh 'docker login -u $DOCKERHUB_USER -p $DOCKERHUB_PASSWORD'
@@ -39,10 +42,10 @@ pipeline {
 
     stage('Push') {
       steps {
-        sh 'docker push anileloye/frontend'
-        sh 'docker push anileloye/api-user'
-        sh 'docker push anileloye/api-feed'
-        sh 'docker push anileloye/reverseproxy'
+        sh 'docker push anileloye/frontend:latest'
+        sh 'docker push anileloye/api-user:latest'
+        sh 'docker push anileloye/api-feed:latest'
+        sh 'docker push anileloye/reverseproxy:latest'
 
       }
     }
