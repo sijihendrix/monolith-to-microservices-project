@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Checkout Code') {
       steps {
-        git(url: 'https://github.com/sijihendrix/monolith', branch: 'deployment')
+        git(url: 'https://github.com/sijihendrix/monolith-to-microservices-project.git', branch: 'deployment')
       }
     }
 
