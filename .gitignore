@@ -44,21 +44,21 @@ venv/
 
 
 
-# udagram-api-feed/deployment.yaml
-# udagram-api-feed/service.yaml
-# udagram-api-user/deployment.yaml
-# udagram-api-user/deployment.yaml
-# udagram-frontend/deployment.yaml
-# udagram-frontend/service.yaml
-# udagram-reverseproxy/deployment.yaml
-# udagram-reverseproxy/service.yaml
-# udagram-api-feed/deployment.yaml
-# udagram-frontend/deployment.yaml
-# udagram-frontend/deployment.yaml
+udagram-api-feed/deployment.yaml
+udagram-api-feed/service.yaml
+udagram-api-user/deployment.yaml
+udagram-api-user/deployment.yaml
+udagram-frontend/deployment.yaml
+udagram-frontend/service.yaml
+udagram-reverseproxy/deployment.yaml
+udagram-reverseproxy/service.yaml
+udagram-api-feed/deployment.yaml
+udagram-frontend/deployment.yaml
+udagram-frontend/deployment.yaml
 
 
-# create_manifests.sh
+create_manifests.sh
 
-# Jenkinsfile
+Jenkinsfile
 
 k8s/
