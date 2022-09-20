@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: udagram-api-reverseproxy-svc
+  labels:
+    app: udagram-api-reverseproxy
+spec:
+  ports:
+    - name: "8080"
+      port: 8080
+      protocol: TCP
+  selector:
+    app: udagram-api-reverseproxy
+  type: LoadBalancer

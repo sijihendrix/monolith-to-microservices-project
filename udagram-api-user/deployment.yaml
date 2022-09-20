@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: udagram-users
-          image: anileloye/api-user
+          image: anileloye/api-user:latest
           imagePullPolicy: Always
           resources:
             requests:
