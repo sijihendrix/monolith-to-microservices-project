@@ -82,8 +82,3 @@ spec:
         - name: aws-secret
           secret:
             secretName: aws-secret
-
-
-  docker build . -t anileloye/udagram-frontend:v6
-
-  docker push anileloye/udagram-frontend:v6
