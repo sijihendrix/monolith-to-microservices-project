@@ -56,9 +56,12 @@ udagram-api-feed/deployment.yaml
 udagram-frontend/deployment.yaml
 udagram-frontend/deployment.yaml
 
+/Users/macbookpro/Desktop/udacity/proj/monolith-to-microservices-project/udagram-api-feed/deployment.yaml
 
 create_manifests.sh
 
+
+kubectl expose deployment udagram-api-reverseproxy --type=LoadBalancer --name=publicreverseproxy
 Jenkinsfile
 
 k8s/
